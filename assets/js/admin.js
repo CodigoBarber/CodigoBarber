@@ -563,6 +563,14 @@ function createReservationCard(id,data){
 
     <div class="info-item">
 
+    <i class="ri-calendar-line"></i>
+
+    <span>${data.fecha}</span>
+
+</div>
+
+    <div class="info-item">
+
         <i class="ri-map-pin-line"></i>
 
         <span>${data.direccion}</span>
