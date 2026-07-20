@@ -57,17 +57,54 @@ body{
 
 .today{
 
-    background:#1b1b1b;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
+    background:#1b1b1b;
     border:1px solid #2d2d2d;
 
-    padding:14px 20px;
+    padding:12px 18px;
 
-    border-radius:15px;
+    border-radius:16px;
+
+    transition:.3s;
+
+}
+
+.today:hover{
+
+    border-color:#D4AF37;
+
+}
+
+.today i{
 
     color:#D4AF37;
+    font-size:22px;
 
-    font-weight:bold;
+}
+
+.today input{
+
+    background:transparent;
+    border:none;
+    outline:none;
+
+    color:#fff;
+
+    font-size:16px;
+    font-weight:600;
+
+    width:170px;
+
+    cursor:pointer;
+
+}
+
+.today input::placeholder{
+
+    color:#888;
 
 }
 
@@ -808,5 +845,181 @@ body{
         opacity:1;
 
     }
+
+}
+/* Punto de reservas en el calendario */
+
+.reservation-dot{
+    position:absolute;
+    bottom:4px;
+    left:50%;
+    transform:translateX(-50%);
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#D4AF37;
+    box-shadow:0 0 8px rgba(212,175,55,.8);
+    pointer-events:none;
+}
+
+.flatpickr-day{
+    position:relative;
+}
+/*=========================
+    CALENDARIO PREMIUM
+=========================*/
+
+.flatpickr-calendar{
+    background:#111;
+    border:1px solid #D4AF37;
+    border-radius:16px;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.flatpickr-months{
+    background:#111;
+}
+
+.flatpickr-current-month{
+    color:#D4AF37;
+    font-weight:700;
+}
+
+.flatpickr-weekday{
+    color:#D4AF37;
+}
+
+.flatpickr-day{
+    color:#fff;
+    border-radius:10px;
+    position:relative;
+    transition:.2s;
+}
+
+.flatpickr-day:hover{
+    background:#D4AF37;
+    color:#111;
+}
+
+.flatpickr-day.selected{
+    background:#D4AF37 !important;
+    color:#111 !important;
+}
+
+.flatpickr-day.has-reservation::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:4px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    box-shadow:0 0 8px #D4AF37;
+
+}
+.flatpickr-calendar{
+
+    border:none !important;
+    border-radius:18px !important;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+
+}
+
+.flatpickr-day.has-reservation::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:4px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:6px;
+    height:6px;
+
+    background:#D4AF37;
+
+    border-radius:50%;
+
+}
+.flatpickr-input{
+
+    color:#fff !important;
+
+}
+/* Día actual */
+.flatpickr-day.today{
+    background:#D4AF37 !important;
+    color:#000 !important;
+    border:none !important;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+/* Días con reservas */
+.flatpickr-day.has-reservation{
+    position:relative;
+}
+
+.flatpickr-day.has-reservation::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    bottom:4px;
+}
+
+/* Si es hoy y tiene reserva, solo mostrar el puntico */
+.flatpickr-day.today.has-reservation::after{
+    bottom:2px;
+}
+.flatpickr-day:hover{
+
+    background:#2b2b2b !important;
+
+    color:#D4AF37 !important;
+
+    transition:.2s;
+
+    transform:scale(1.08);
+
+}
+.flatpickr-calendar{
+
+    border-radius:18px;
+
+    border:1px solid #2d2d2d;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
 
 }

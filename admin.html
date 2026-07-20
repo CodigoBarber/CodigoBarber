@@ -11,7 +11,7 @@
 <title>CódigoBarber | Panel</title>
 
 <link rel="stylesheet" href="assets/css/admin.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">
 <link rel="manifest" href="manifest.json">
 
 <meta name="theme-color" content="#D4AF37">
@@ -52,11 +52,14 @@
 
     <div class="today">
 
-        <i class="ri-calendar-line"></i>
+    <i class="ri-calendar-line"></i>
 
-        <span id="currentDate"></span>
+    <input
+        type="text"
+        id="currentDate"
+        readonly>
 
-    </div>
+</div>
 
     <button id="logoutBtn" class="danger-btn">
 
@@ -171,7 +174,8 @@
 </div>
 
 <script type="module" src="assets/js/admin.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 <script>
 
 if("serviceWorker" in navigator){
@@ -200,3 +204,4 @@ if("serviceWorker" in navigator){
 
 </body>
 </html>
+

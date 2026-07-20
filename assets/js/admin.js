@@ -55,6 +55,10 @@ let searchText = "";
 
 let reservationsSnapshot = null;
 
+let selectedDate = new Date().toISOString().split("T")[0];
+
+let reservedDates = [];
+
 /* Control de notificaciones */
 let firstLoad = true;
 const notificationSound = new Audio("assets/audio/notification.mp3");
@@ -78,6 +82,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         updateDate();
 
+document.getElementById("currentDate").value = selectedDate;
+
         initMenu();
 
         loadReservations();
@@ -91,23 +97,79 @@ document.addEventListener("DOMContentLoaded",()=>{
 =========================================*/
 console.log("ADMIN NUEVO CARGADO");
 
+function marcarDiasConReservas(instance){
+
+    const dias = instance.calendarContainer.querySelectorAll(".flatpickr-day");
+
+    dias.forEach(dia=>{
+
+        dia.classList.remove("has-reservation");
+
+        const year = dia.dateObj.getFullYear();
+        const month = String(dia.dateObj.getMonth()+1).padStart(2,"0");
+        const day = String(dia.dateObj.getDate()).padStart(2,"0");
+
+        const fecha = `${year}-${month}-${day}`;
+
+        if(reservedDates.includes(fecha)){
+
+            dia.classList.add("has-reservation");
+
+        }
+
+    });
+
+}
+
 function updateDate(){
 
     const currentDate = document.getElementById("currentDate");
 
     if(!currentDate) return;
 
-    const today = new Date();
+    flatpickr(currentDate,{
 
-    currentDate.textContent = today.toLocaleDateString("es-CO",{
+        locale: flatpickr.l10ns.es,
 
-        weekday:"long",
+        altInput:true,
 
-        day:"numeric",
+        altFormat:"d \\de F \\de Y",
 
-        month:"long",
+        dateFormat:"Y-m-d",
 
-        year:"numeric"
+        defaultDate:selectedDate,
+
+        disableMobile:true,
+
+        onReady:function(selectedDates,dateStr,instance){
+
+            marcarDiasConReservas(instance);
+
+        },
+
+        onMonthChange:function(selectedDates,dateStr,instance){
+
+            marcarDiasConReservas(instance);
+
+        },
+
+        onYearChange:function(selectedDates,dateStr,instance){
+
+            marcarDiasConReservas(instance);
+
+        },
+
+        onChange:function(selectedDates){
+
+            if(selectedDates.length===0) return;
+
+            selectedDate = selectedDates[0]
+                .toISOString()
+                .split("T")[0];
+
+            loadReservations();
+
+        }
 
     });
 
@@ -235,7 +297,8 @@ function loadReservations(){
     );
 
     unsubscribeReservations = onSnapshot(q,(snapshot)=>{
-reservationsSnapshot = snapshot;
+reservedDates = [];
+        reservationsSnapshot = snapshot;
         reservationsList.innerHTML = "";
 
         let pending = 0;
@@ -243,9 +306,15 @@ reservationsSnapshot = snapshot;
         let cancelled = 0;
         let money = 0;
 
+        reservedDates = [];
+
         snapshot.forEach(reserva=>{
 
     const data = reserva.data();
+
+if(!reservedDates.includes(data.fecha)){
+    reservedDates.push(data.fecha);
+}
 
     switch(data.estado){
 
@@ -307,9 +376,20 @@ if(!snapshot.empty){
 
         );
 
-        updateHeaders();
+updateHeaders();
 
-        renderReservations(snapshot);
+renderReservations(snapshot);
+
+const fp = document.getElementById("currentDate")._flatpickr;
+
+if(fp){
+
+    fp.redraw();
+
+    marcarDiasConReservas(fp);
+
+}
+
 const firstCard = document.querySelector(".reservation-card");
 
 if(firstCard && !firstLoad){
@@ -323,7 +403,7 @@ if(firstCard && !firstLoad){
     },2500);
 
 }
-    });
+ });
 
 }
 
@@ -405,6 +485,16 @@ function renderReservations(snapshot){
     snapshot.forEach(docSnap=>{
 
         const data = docSnap.data();
+
+/*=========================
+        FILTRAR POR FECHA
+=========================*/
+
+if(data.fecha !== selectedDate){
+
+    return;
+
+}
 
         /*=========================
             FILTRAR POR ESTADO
