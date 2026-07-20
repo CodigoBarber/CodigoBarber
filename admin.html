@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<link rel="icon" href="assets/icons/icon-192.png">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CódigoBarber | Panel</title>
+
+<link rel="stylesheet" href="assets/css/admin.css">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#D4AF37">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="topbar">
+<div class="search-box">
+
+    <i class="ri-search-line"></i>
+
+    <input
+    type="text"
+    id="searchReservation"
+    placeholder="Buscar reserva...">
+    
+</div>
+        <div>
+
+            <h1>
+                <i class="ri-scissors-line"></i>
+                CódigoBarber
+            </h1>
+
+            <p>
+                Panel de Administración
+            </p>
+
+        </div>
+
+        <div style="display:flex;align-items:center;gap:15px;">
+
+    <div class="today">
+
+        <i class="ri-calendar-line"></i>
+
+        <span id="currentDate"></span>
+
+    </div>
+
+    <button id="logoutBtn" class="danger-btn">
+
+        <i class="ri-logout-box-r-line"></i>
+
+        Salir
+
+    </button>
+
+</div>
+
+    </header>
+
+    <nav class="menu">
+
+        <button class="menu-btn active" data-section="pending">
+
+            🔔 Pendientes
+
+            <span id="pendingCount">0</span>
+
+        </button>
+
+        <button class="menu-btn" data-section="confirmed">
+
+            💰 Confirmadas
+
+            <span id="confirmedCount">0</span>
+
+        </button>
+
+        <button class="menu-btn" data-section="cancelled">
+
+            ❌ Canceladas
+
+            <span id="cancelledCount">0</span>
+
+        </button>
+
+    </nav>
+
+    <section id="confirmedHeader" class="earnings">
+
+    <div class="earnings-top">
+
+        <div>
+
+            <h2>
+
+                Ganancias Totales
+
+            </h2>
+
+            <h1 id="totalMoney">
+
+                $0
+
+            </h1>
+
+        </div>
+
+        <button id="clearConfirmed" class="danger-btn">
+
+            🗑 Limpiar historial
+
+        </button>
+
+    </div>
+
+</section>
+
+    <section id="cancelledHeader" class="earnings" style="display:none;">
+
+    <div class="earnings-top">
+
+        <h2>
+
+            Reservas Canceladas
+
+        </h2>
+
+        <button id="clearCancelled" class="danger-btn">
+
+            🗑 Vaciar canceladas
+
+        </button>
+
+    </div>
+
+</section>
+
+    
+
+<div id="reservationsList"></div>
+
+</div>
+
+<div id="toastNotification" class="toast">
+
+    <div class="toast-icon">
+        🔔
+    </div>
+
+    <div class="toast-content">
+
+        <h3>Nueva reserva</h3>
+
+        <p id="toastText"></p>
+
+    </div>
+
+</div>
+
+<script type="module" src="assets/js/admin.js"></script>
+
+<script>
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener("load",()=>{
+
+        navigator.serviceWorker.register("./service-worker.js")
+
+        .then(()=>{
+
+            console.log("Service Worker registrado");
+
+        })
+
+        .catch(err=>{
+
+            console.error(err);
+
+        });
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

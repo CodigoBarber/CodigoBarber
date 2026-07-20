@@ -1,0 +1,812 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+    background:#0f0f0f;
+
+    color:#fff;
+
+}
+
+.container{
+
+    width:92%;
+
+    max-width:1400px;
+
+    margin:35px auto;
+
+}
+
+/*==========================
+        HEADER
+==========================*/
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:34px;
+
+    color:#D4AF37;
+
+}
+
+.topbar p{
+
+    color:#999;
+
+    margin-top:6px;
+
+}
+
+.today{
+
+    background:#1b1b1b;
+
+    border:1px solid #2d2d2d;
+
+    padding:14px 20px;
+
+    border-radius:15px;
+
+    color:#D4AF37;
+
+    font-weight:bold;
+
+}
+
+/*==========================
+        MENU
+==========================*/
+
+.menu{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    margin-bottom:30px;
+
+}
+
+.menu-btn{
+
+    background:linear-gradient(180deg,#1d1d1d,#181818);
+
+    border:1px solid #2d2d2d;
+
+    border-radius:20px;
+
+    padding:28px 20px;
+
+    cursor:pointer;
+
+    color:white;
+
+    transition:.30s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.menu-btn:hover{
+
+    border-color:#D4AF37;
+
+    transform:translateY(-2px);
+
+}
+
+.menu-btn.active{
+
+    background:#D4AF37;
+
+    color:#111;
+
+}
+
+.menu-btn span{
+
+    margin-top:8px;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#D4AF37;
+
+    background:none;
+
+    width:auto;
+
+    height:auto;
+
+}
+
+/*==========================
+        GANANCIAS
+==========================*/
+
+.earnings{
+
+    background:#1b1b1b;
+
+    border-radius:18px;
+
+    border:1px solid #2d2d2d;
+
+    padding:30px;
+
+    margin-bottom:35px;
+
+}
+
+.earnings h2{
+
+    color:#999;
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+}
+
+.earnings h1{
+
+    color:#D4AF37;
+
+    font-size:48px;
+
+}
+
+/*==========================
+        LISTA
+==========================*/
+
+#reservationsList{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
+
+    gap:25px;
+
+}
+
+/*==========================
+        TARJETA
+==========================*/
+
+.reservation-card{
+
+    background:linear-gradient(180deg,#1d1d1d,#171717);
+
+    border:1px solid #2d2d2d;
+
+    border-left:4px solid #D4AF37;
+
+    border-radius:20px;
+
+    padding:26px;
+
+    transition:.30s;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+}
+
+.reservation-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#D4AF37;
+
+    box-shadow:0 15px 35px rgba(212,175,55,.15);
+
+}
+
+.reservation-card h2{
+
+    font-size:34px;
+
+    color:#D4AF37;
+
+    margin-bottom:22px;
+
+    letter-spacing:1px;
+
+}
+
+.reservation-card p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:14px;
+
+    color:#d8d8d8;
+
+    font-size:15px;
+
+}
+
+.reservation-card strong{
+
+    color:white;
+
+}
+
+/*==========================
+        BOTONES
+==========================*/
+
+.actions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+.actions button{
+
+    width:100%;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:.30s;
+
+}
+
+.confirm-btn{
+
+    background:#D4AF37;
+
+    color:#111;
+
+}
+
+.confirm-btn:hover{
+
+    background:#c89d14;
+
+}
+
+.cancel-btn{
+
+    background:#9c1d1d;
+
+    color:white;
+
+}
+
+.cancel-btn:hover{
+
+    background:#b32626;
+
+}
+
+.finish-btn{
+
+    background:#0f8a42;
+
+    color:white;
+
+}
+
+.finish-btn:hover{
+
+    background:#13a04d;
+
+}
+
+/*==========================
+        RESPONSIVE
+==========================*/
+
+@media(max-width:850px){
+
+.topbar{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+}
+
+.menu{
+
+    flex-wrap:wrap;
+
+}
+
+#reservationsList{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+.status-confirmed{
+
+    display:block;
+
+    width:100%;
+
+    background:#163b20;
+
+    color:#57d97b;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+
+.status-cancelled{
+
+    display:block;
+
+    width:100%;
+
+    background:#401818;
+
+    color:#ff7b7b;
+
+    text-align:center;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+}
+/*==========================
+      TARJETAS PREMIUM
+==========================*/
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.card-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.info-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#ddd;
+
+    font-size:15px;
+
+}
+
+.price{
+
+    margin-top:25px;
+
+    margin-bottom:25px;
+
+    background:#141414;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    text-align:center;
+
+    border:1px solid rgba(212,175,55,.15);
+
+}
+
+.price small{
+
+    display:block;
+
+    color:#888;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.price h1{
+
+    color:#D4AF37;
+
+    font-size:34px;
+
+    margin:0;
+
+}
+
+.badge{
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-transform:capitalize;
+
+}
+
+.badge-pendiente{
+
+    background:#5a4712;
+
+    color:#FFD54F;
+
+}
+
+.badge-confirmada{
+
+    background:#173b24;
+
+    color:#66e28d;
+
+}
+
+.badge-cancelada{
+
+    background:#4b1d1d;
+
+    color:#ff8a80;
+
+}
+.info-item i{
+
+    width:22px;
+
+    color:#D4AF37;
+
+    font-size:18px;
+
+    text-align:center;
+
+}
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+    padding-bottom:16px;
+
+    border-bottom:1px solid rgba(212,175,55,.18);
+
+}
+
+.card-header h2{
+
+    font-size:32px;
+
+    color:#D4AF37;
+
+    letter-spacing:1px;
+
+}
+/*==========================
+      DASHBOARD NUEVO
+==========================*/
+
+.earnings-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.danger-btn{
+
+    background:#8b1f1f;
+
+    color:#fff;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.danger-btn:hover{
+
+    background:#b32626;
+
+    transform:translateY(-2px);
+
+}
+
+.earnings{
+
+    background:linear-gradient(180deg,#1d1d1d,#171717);
+
+    border:1px solid #2b2b2b;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.20);
+
+}
+
+.earnings h2{
+
+    color:#9c9c9c;
+
+    font-size:17px;
+
+    margin-bottom:10px;
+
+}
+
+.earnings h1{
+
+    color:#D4AF37;
+
+    font-size:46px;
+
+    margin:0;
+
+}
+/*==========================
+        BUSCADOR
+==========================*/
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#1b1b1b;
+
+    border:1px solid #2d2d2d;
+
+    border-radius:16px;
+
+    padding:15px 20px;
+
+    margin-bottom:25px;
+
+}
+
+.search-box i{
+
+    color:#D4AF37;
+
+    font-size:20px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    background:none;
+
+    border:none;
+
+    outline:none;
+
+    color:white;
+
+    font-size:16px;
+
+}
+
+.search-box input::placeholder{
+
+    color:#777;
+
+}
+/*=========================================
+        TOAST NOTIFICATION
+=========================================*/
+
+.toast{
+
+    position:fixed;
+
+    top:25px;
+
+    right:-420px;
+
+    width:340px;
+
+    background:#1b1b1b;
+
+    border-left:5px solid #D4AF37;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+    transition:.45s;
+
+    z-index:9999;
+
+}
+
+.toast.show{
+
+    right:25px;
+
+}
+
+.toast-icon{
+
+    font-size:34px;
+
+}
+
+.toast-content h3{
+
+    color:#D4AF37;
+
+    margin-bottom:4px;
+
+    font-size:18px;
+
+}
+
+.toast-content p{
+
+    color:#ddd;
+
+    font-size:14px;
+
+    line-height:1.4;
+
+}
+/*=========================================
+        NUEVA RESERVA
+=========================================*/
+
+.reservation-card.new-reservation{
+
+    border:2px solid #D4AF37;
+
+    box-shadow:0 0 25px rgba(212,175,55,.7);
+
+    animation:newReservation 2.5s ease;
+
+}
+
+@keyframes newReservation{
+
+    0%{
+
+        transform:scale(.96);
+
+        opacity:.3;
+
+    }
+
+    40%{
+
+        transform:scale(1.03);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}

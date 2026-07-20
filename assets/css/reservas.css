@@ -1,0 +1,828 @@
+/*=========================================
+        RESET
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --gold:#D4AF37;
+    --gold-light:#f5d66b;
+    --dark:#050505;
+    --card:#101010;
+    --border:#232323;
+    --text:#bdbdbd;
+    --white:#ffffff;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:var(--dark);
+    color:white;
+    min-height:100vh;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    border:none;
+
+}
+
+input{
+
+    font-family:'Poppins',sans-serif;
+    outline:none;
+
+}
+/*=========================================
+        CONTENEDOR
+=========================================*/
+
+.reservation-page{
+
+    max-width:900px;
+    margin:auto;
+    padding:50px 20px 80px;
+
+}
+
+.reservation-card{
+
+    width:100%;
+    max-width:860px;
+
+    margin:35px auto 0;
+
+    background:#101010;
+
+    border:1px solid #252525;
+
+    border-radius:30px;
+
+    padding:45px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45);
+
+}
+/*=========================================
+        HEADER
+=========================================*/
+
+/*=========================================
+        HEADER PREMIUM
+=========================================*/
+
+.reservation-header{
+
+    position:relative;
+    text-align:center;
+    margin-bottom:45px;
+
+}
+
+.back{
+
+    position:absolute;
+    left:0;
+    top:20px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#141414;
+    border:1px solid #252525;
+    color:white;
+    font-size:26px;
+    transition:.35s;
+
+}
+
+.back:hover{
+
+    background:var(--gold);
+    color:#000;
+    transform:translateX(-4px);
+
+}
+
+.reservation-header img{
+
+    width:170px;
+    display:block;
+    margin:0 auto 20px;
+    filter:drop-shadow(0 0 25px rgba(212,175,55,.35));
+    animation:logoIntro .9s ease;
+
+}
+
+.reservation-header h1{
+
+    font-size:58px;
+    font-weight:800;
+    margin-bottom:12px;
+    letter-spacing:-1px;
+
+}
+
+.reservation-header p{
+
+    font-size:20px;
+    color:#9c9c9c;
+    max-width:650px;
+    margin:auto;
+
+}
+/*=========================================
+        PROGRESO
+=========================================*/
+
+.progress{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:50px 0;
+    gap:15px;
+
+}
+
+.line{
+
+    flex:1;
+    height:4px;
+    background:#222;
+    border-radius:20px;
+    transition:.35s;
+
+}
+
+.line.active{
+
+    background:var(--gold);
+
+}
+
+.step{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+
+}
+
+.step span{
+
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#1a1a1a;
+    border:2px solid #333;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+    transition:.35s;
+
+}
+
+.step.active span{
+
+    background:var(--gold);
+    border-color:var(--gold);
+    color:black;
+    transform:scale(1.08);
+
+}
+
+.step p{
+
+    font-size:14px;
+    color:#777;
+    transition:.35s;
+
+}
+
+.step.active p{
+
+    color:white;
+    font-weight:600;
+
+}
+/*=========================================
+        INPUTS
+=========================================*/
+
+.step-page{
+
+    display:none;
+    animation:fade .4s ease;
+
+}
+
+.step-page.active{
+
+    display:block;
+
+}
+
+.step-page h2{
+
+    font-size:38px;
+    font-weight:800;
+    margin-bottom:35px;
+
+}
+
+.input-group{
+
+    margin-bottom:25px;
+
+}
+
+.input-group label{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:12px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    color:#d9d9d9;
+
+}
+
+.input-group label i{
+
+    color:var(--gold);
+
+    font-size:18px;
+
+}
+
+.input-group input{
+
+    width:100%;
+
+    height:62px;
+
+    background:#151515;
+
+    border:none;
+
+    border-bottom:2px solid #2c2c2c;
+
+    border-radius:12px 12px 0 0;
+
+    padding:0 20px;
+
+    color:white;
+
+    font-size:17px;
+
+    transition:.35s;
+
+}
+
+.input-group input:focus{
+
+    border-bottom:2px solid var(--gold);
+
+    background:#181818;
+
+    box-shadow:none;
+
+}
+
+.input-group input::placeholder{
+
+    color:#777;
+
+}
+/*=========================================
+        SERVICIOS
+=========================================*/
+
+.services-grid{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:20px;
+
+}
+
+.service-box{
+
+    margin-bottom:40px;
+
+}
+
+.service-box h3{
+
+    margin-bottom:15px;
+    color:var(--gold);
+
+}
+
+.service-option{
+
+    background:#151515;
+
+    border:2px solid #242424;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.service-option::after{
+
+    content:"✔";
+
+    position:absolute;
+
+    top:15px;
+
+    right:18px;
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    color:#000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:.35s;
+
+}
+
+.service-option.selected{
+
+    border-color:var(--gold);
+
+    background:rgba(212,175,55,.08);
+
+    transform:scale(1.02);
+
+    box-shadow:0 0 30px rgba(212,175,55,.18);
+
+}
+
+.service-option.selected::after{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+.service-option.selected{
+
+    border-color:var(--gold);
+    background:rgba(212,175,55,.10);
+
+}
+
+.service-option i{
+
+    font-size:52px;
+
+    color:var(--gold);
+
+    margin-bottom:18px;
+
+    display:block;
+
+}
+
+.service-option h4{
+
+    margin-bottom:10px;
+
+}
+
+.service-option p{
+
+    color:#9b9b9b;
+
+    font-size:14px;
+
+    margin:10px 0 18px;
+
+    line-height:1.5;
+
+}
+
+.service-option span{
+
+    color:var(--gold);
+    font-weight:700;
+
+}
+/*=========================================
+        BOTONES
+=========================================*/
+
+.buttons{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:40px;
+ 
+}
+
+.next-only{
+
+    justify-content:flex-end;
+
+}
+
+.buttons button,
+#confirmReservation{
+
+    min-width:180px;
+    height:58px;
+    border-radius:16px;
+    background:linear-gradient(
+        135deg,
+        #D4AF37,
+        #f4d36a
+    );
+    color:black;
+    font-size:17px;
+    font-weight:700;
+    transition:.35s;
+
+}
+
+.buttons button:hover,
+#confirmReservation:hover{
+
+    transform:translateY(-4px);
+
+}
+
+#addService{
+
+    background:#181818;
+    color:white;
+    border:2px dashed var(--gold);
+
+}
+
+#addService:hover{
+
+    background:var(--gold);
+    color:black;
+
+}
+/*=========================================
+        HORARIOS
+=========================================*/
+
+.hours-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:25px;
+
+}
+
+.hour{
+
+    height:55px;
+    border-radius:15px;
+    background:#171717;
+    color:white;
+    border:2px solid #222;
+    transition:.35s;
+
+}
+
+.hour:hover{
+
+    border-color:var(--gold);
+
+}
+
+.hour.selected{
+
+    background:var(--gold);
+    color:black;
+    border-color:var(--gold);
+
+}
+
+.hour:disabled{
+
+    opacity:.35;
+    cursor:not-allowed;
+
+}
+/*=========================================
+        RESUMEN
+=========================================*/
+
+.summary{
+
+    background:#141414;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    margin:30px 0;
+
+}
+
+.summary-line{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    font-size:17px;
+
+}
+
+.summary-line strong{
+
+    color:var(--gold);
+
+}
+
+.summary hr{
+
+    border:none;
+    height:1px;
+    background:#2a2a2a;
+    margin:20px 0;
+
+}
+
+.summary-total{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:26px;
+    font-weight:700;
+
+}
+
+.summary-total strong{
+
+    color:var(--gold);
+
+}
+/*=========================================
+        ANIMACIONES
+=========================================*/
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.service-option,
+.hour,
+.buttons button,
+#confirmReservation,
+.back{
+
+transition:.35s;
+
+}
+/*=========================================
+        RESPONSIVE
+=========================================*/
+
+@media(max-width:768px){
+
+.reservation-page{
+
+padding:25px 15px 60px;
+
+}
+
+.reservation-card{
+
+padding:25px;
+
+border-radius:22px;
+
+}
+
+.reservation-header img{
+
+    width:140px;
+
+    height:auto;
+
+    display:block;
+
+    margin:0 auto 20px;
+
+    filter:drop-shadow(0 0 18px rgba(212,175,55,.35));
+
+    transition:.3s;
+
+}
+
+.reservation-header h1{
+
+    font-size:58px;
+
+    font-weight:800;
+
+    margin-top:10px;
+
+    margin-bottom:10px;
+
+}
+
+.progress{
+
+gap:8px;
+
+}
+
+.step span{
+
+width:38px;
+
+height:38px;
+
+font-size:14px;
+
+}
+
+.step p{
+
+font-size:11px;
+
+}
+
+.services-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.hours-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.buttons{
+
+flex-direction:column;
+
+}
+
+.summary-total{
+
+font-size:22px;
+
+}
+
+}
+/*=========================================
+        DETALLES
+=========================================*/
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--gold);
+
+border-radius:20px;
+
+}
+
+::selection{
+
+background:var(--gold);
+
+color:#000;
+
+}
+/*=========================================
+        BOTÓN ATRÁS FINAL
+=========================================*/
+
+#paso4 .backStep{
+
+    width:40%;
+
+    height:40px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(135deg,#D4AF37,#f5d66b);
+
+    color:#000;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+#paso4 .backStep:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 35px rgba(212,175,55,.35);
+
+}

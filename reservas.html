@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reservar | CódigoBarber</title>
+
+<link rel="icon" href="assets/images/favicon.png">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/reservas.css">
+
+</head>
+
+<body>
+
+<div class="reservation-page">
+
+<div class="reservation-header">
+
+<a href="index.html" class="back" aria-label="Volver al inicio">
+    <i class="ri-arrow-left-line"></i>
+</a>
+
+<img
+    class="logo"
+    src="assets/images/logo.png"
+    alt="CódigoBarber">
+
+<span class="brand">
+    CódigoBarber
+</span>
+
+<h1>
+    Reserva tu cita
+</h1>
+
+<p>
+    Agenda un servicio a domicilio en menos de un minuto.
+</p>
+
+</div>
+<div class="progress">
+
+<div class="step active">
+
+<span>1</span>
+
+<p>Datos</p>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<span>2</span>
+
+<p>Servicios</p>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<span>3</span>
+
+<p>Fecha</p>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<span>4</span>
+
+<p>Confirmar</p>
+
+</div>
+
+<div class="reservation-card">
+
+<section class="step-page active" id="paso1">
+
+<h2>
+    <i class="ri-user-line"></i>
+    Tus datos
+</h2>
+
+<div class="input-group">
+
+<label>
+    <i class="ri-user-3-line"></i>
+    Nombre completo
+</label>
+
+<input
+type="text"
+id="nombre"
+placeholder="Ej: Nicolás García">
+
+</div>
+
+<div class="input-group">
+
+<label>
+    <i class="ri-whatsapp-line"></i>
+    WhatsApp
+</label>
+
+<input
+type="tel"
+id="telefono"
+placeholder="322 519 7948">
+
+</div>
+
+<div class="input-group">
+
+<label>
+    <i class="ri-map-pin-line"></i>
+    Dirección del domicilio
+</label>
+
+<input
+type="text"
+id="direccion"
+placeholder="Ej: Calle 15 #10-25">
+
+</div>
+
+<div class="buttons next-only">
+
+<button class="next">
+
+Continuar
+
+<i class="ri-arrow-right-line"></i>
+
+</button>
+
+</div>
+
+</section>
+
+<section class="step-page" id="paso2">
+
+<h2>Selecciona los servicios</h2>
+
+<div id="servicesContainer">
+
+<div class="service-box">
+
+<h3>Servicio #1</h3>
+
+<div class="services-grid">
+
+<div class="service-option" data-service="adulto">
+
+    <i class="ri-user-3-line"></i>
+
+    <h4>Corte Adulto</h4>
+
+    <p>Corte clásico o moderno.</p>
+
+    <span>$25.000</span>
+
+</div>
+
+<div class="service-option" data-service="nino">
+
+    <i class="ri-user-smile-line"></i>
+
+    <h4>Corte Niño</h4>
+
+    <p>Especial para los más pequeños.</p>
+
+    <span>$20.000</span>
+
+</div>
+
+<div class="service-option" data-service="barba">
+
+    <i class="ri-scissors-line"></i>
+
+    <h4>Perfilado de Barba</h4>
+
+    <p>Diseño y perfilado profesional.</p>
+
+    <span>$15.000</span>
+
+</div>
+
+<div class="service-option" data-service="combo">
+
+    <i class="ri-vip-crown-2-line"></i>
+
+    <h4>Corte + Barba</h4>
+
+    <p>El servicio más solicitado.</p>
+
+    <span>$35.000</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="buttons">
+
+<button
+type="button"
+id="addService">
+
+<i class="ri-add-line"></i>
+
+Agregar otro servicio
+
+</button>
+
+</div>
+
+<div class="buttons">
+
+<button class="backStep">
+
+Atrás
+
+</button>
+
+<button class="next">
+
+Continuar
+
+</button>
+
+</div>
+
+</section>
+<section class="step-page" id="paso3">
+
+<h2>Selecciona la fecha</h2>
+
+<div class="input-group">
+
+<label>Fecha</label>
+
+<input
+type="date"
+id="fecha">
+
+</div>
+
+<h2 style="margin-top:40px;">
+
+Selecciona la hora
+
+</h2>
+
+<div class="hours-grid" id="hoursGrid">
+
+<button class="hour" data-hour="08:00">8:00 AM</button>
+
+<button class="hour" data-hour="09:00">9:00 AM</button>
+
+<button class="hour" data-hour="10:00">10:00 AM</button>
+
+<button class="hour" data-hour="11:00">11:00 AM</button>
+
+<button class="hour lunch" disabled>
+
+12:00 PM
+
+</button>
+
+<button class="hour" data-hour="14:00">2:00 PM</button>
+
+<button class="hour" data-hour="15:00">3:00 PM</button>
+
+<button class="hour" data-hour="16:00">4:00 PM</button>
+
+<button class="hour" data-hour="17:00">5:00 PM</button>
+
+<button class="hour" data-hour="18:00">6:00 PM</button>
+
+<button class="hour" data-hour="19:00">7:00 PM</button>
+
+</div>
+
+<div class="buttons">
+
+<button class="backStep">
+
+Atrás
+
+</button>
+
+<button class="next">
+
+Continuar
+
+</button>
+
+</div>
+
+</section>
+<section class="step-page" id="paso4">
+
+<h2>Resumen de tu reserva</h2>
+
+<div class="summary">
+
+<div id="summaryServices">
+
+</div>
+
+<div class="summary-line">
+
+<span>Domicilio</span>
+
+<strong>$10.000</strong>
+
+</div>
+
+<hr>
+
+<div class="summary-total">
+
+<span>TOTAL</span>
+
+<strong id="totalPrice">
+
+$10.000
+
+</strong>
+
+</div>
+
+</div>
+
+<button id="confirmReservation">
+
+Confirmar Reserva
+
+</button>
+
+<button class="backStep">
+
+Atrás
+
+</button>
+
+</section>
+
+</div>
+
+</div>
+
+<script type="module" src="assets/js/reservas.js"></script>
+
+</body>
+
+</html>
