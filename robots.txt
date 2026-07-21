@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://codigobarber.github.io/CodigoBarber/sitemap.xml
